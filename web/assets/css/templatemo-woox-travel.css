@@ -2327,3 +2327,9 @@ body {
     padding: 0px;
   }
 }
+
+.fixed-image {
+  width: 100%;
+  height: 350px;      /* same height as other images */
+  overflow: hidden;
+}
