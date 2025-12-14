@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <title>Register - E-Community Service</title>
+
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/fontawesome.css">
+    <link rel="stylesheet" href="assets/css/templatemo-woox-travel.css">
+    <link rel="stylesheet" href="assets/css/owl.css">
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+
+    <style>
+        /* Reusing the same Login CSS for consistency */
+        .login-container {
+            padding-top: 150px;
+            padding-bottom: 100px;
+            /* Ensure you have an image here, or the background will be white/blank */
+            background-image: url('assets/images/banner-01.jpg'); 
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .login-card {
+            background-color: #fff;
+            padding: 60px;
+            border-radius: 23px;
+            box-shadow: 0px 0px 15px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            font-weight: 500;
+            color: #2a2a2a;
+        }
+
+        .form-control {
+            border-radius: 23px;
+            height: 46px;
+            border: 1px solid #ddd;
+            padding: 0 20px;
+        }
+
+        .login-header h2 {
+            margin-bottom: 10px;
+            font-size: 30px;
+            font-weight: 700;
+            color: #2a2a2a;
+        }
+
+        .login-header p {
+            margin-bottom: 30px;
+            color: #afafaf;
+        }
+    </style>
+
+  </head>
+
+<body>
+
+  <header class="header-area header-sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <a href="index.html" class="logo">
+                        <img src="assets/images/logo.png" alt="E-Community">
+                    </a>
+                    <ul class="nav">
+                        <li><a href="index.html">Dashboard</a></li>
+                        <li><a href="login.html">Login</a></li>
+                    </ul>   
+                    <a class='menu-trigger'>
+                        <span>Menu</span>
+                    </a>
+                    </nav>
+            </div>
+        </div>
+    </div>
+  </header>
+  <div class="login-container">
+      <div class="container">
+          <div class="row justify-content-center">
+              <div class="col-lg-8 col-md-12"> <div class="login-card">
+                      <div class="login-header text-center">
+                          <h2>Create Account</h2>
+                          <p>Join our community of volunteers today</p>
+                      </div>
+                      
+                      <form id="registerForm" action="RegisterServlet" method="post">
+                          
+                          <div class="row">
+                              <div class="col-md-6 form-group">
+                                  <label for="fullname" class="form-label">Full Name</label>
+                                  <input type="text" class="form-control" id="fullname" name="fullname" placeholder="e.g. Ali Bin Abu" required>
+                              </div>
+
+                              <div class="col-md-6 form-group">
+                                  <label for="phone" class="form-label">Phone Number</label>
+                                  <input type="tel" class="form-control" id="phone" name="phone" placeholder="e.g. 012-3456789" required>
+                              </div>
+                          </div>
+
+                          <div class="form-group">
+                              <label for="email" class="form-label">Email Address</label>
+                              <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com" required>
+                          </div>
+
+                          <div class="row">
+                              <div class="col-md-6 form-group">
+                                  <label for="password" class="form-label">Password</label>
+                                  <input type="password" class="form-control" id="password" name="password" required>
+                              </div>
+
+                              <div class="col-md-6 form-group">
+                                  <label for="confirm_password" class="form-label">Confirm Password</label>
+                                  <input type="password" class="form-control" id="confirm_password" name="confirm_password" required>
+                              </div>
+                          </div>
+
+                          <div class="form-group">
+                              <div class="form-check">
+                                  <input type="checkbox" class="form-check-input" id="terms" required>
+                                  <label class="form-check-label" for="terms">I agree to the Terms of Service and Privacy Policy</label>
+                              </div>
+                          </div>
+
+                          <div class="col-lg-12">
+                              <fieldset>
+                                  <div class="main-button text-center" style="margin-top: 20px;">
+                                      <a href="login.html" onclick="alert('Registration Successful! Please Login.'); return true;">Register Now</a>
+                                  </div>
+                              </fieldset>
+                          </div>
+
+                      </form>
+                      
+                      <div class="text-center mt-4">
+                          <p>Already have an account? <a href="login.html" style="color: #22b3c1; font-weight: 600;">Login Here</a></p>
+                      </div>
+
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <p>Copyright © 2025 E-Community Service Platform. All rights reserved. 
+          <br>Design: <a href="https://templatemo.com" target="_blank" title="free CSS templates">TemplateMo</a></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script src="assets/js/custom.js"></script>
+
+  </body>
+</html>
