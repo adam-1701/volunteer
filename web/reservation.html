@@ -1,218 +1,506 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <title>E-Community Service | Volunteer Reservation</title>
 
-    <title>WoOx Travel Reservation Page</title>
+  <!-- Bootstrap core CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="assets/css/fontawesome.css">
-    <link rel="stylesheet" href="assets/css/templatemo-woox-travel.css">
-    <link rel="stylesheet" href="assets/css/owl.css">
-    <link rel="stylesheet" href="assets/css/animate.css">
-    <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
-<!--
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-TemplateMo 580 Woox Travel
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
 
-https://templatemo.com/tm-580-woox-travel
+    /* Header Styles */
+    .header-area {
+      background: #2a9d8f;
+      padding: 20px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
 
--->
-  </head>
+    .main-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo img {
+      height: 50px;
+    }
+
+    .nav {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+      margin: 0;
+    }
+
+    .nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s;
+    }
+
+    .nav a:hover,
+    .nav a.active {
+      color: #ffd700;
+    }
+
+    .menu-trigger {
+      display: none;
+      color: white;
+      cursor: pointer;
+    }
+
+    /* Hero Section */
+    .second-page-heading {
+      position: relative;
+      overflow: hidden;
+      min-height: 450px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://www.workitdaily.com/media-library/employee-takes-part-in-his-company-s-community-service-volunteer-day.jpg?id=22510611&width=900&quality=50');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 60px 20px;
+      text-align: center;
+      color: white;
+    }
+
+    .hero-content h4 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      font-weight: 400;
+    }
+
+    .hero-content h2 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .hero-content p {
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .main-button a {
+      background: #2a9d8f;
+      color: white;
+      padding: 15px 40px;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 600;
+      display: inline-block;
+      transition: all 0.3s;
+    }
+
+    .main-button a:hover {
+      background: #05faa0;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+
+    /* Info Items */
+    .info-item {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      transition: all 0.3s;
+    }
+
+    .info-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    }
+
+    .info-item i {
+      color: #2a9d8f;
+    }
+
+    /* Form Styles */
+    .form-label {
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+
+    .form-control,
+    .form-select {
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      transition: all 0.3s;
+    }
+
+    .form-control:focus,
+    .form-select:focus {
+      border-color: #2a9d8f;
+      box-shadow: 0 0 0 0.2rem rgba(42, 157, 143, 0.25);
+    }
+
+    button.main-button {
+      background: #2a9d8f;
+      color: white;
+      border: none;
+      padding: 15px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    button.main-button:hover {
+      background: #05faa0;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+
+    /* Footer */
+    footer {
+      background: #1a1a1a;
+      color: white;
+      padding: 40px 0;
+      text-align: center;
+    }
+
+    footer p {
+      margin: 0;
+      line-height: 1.8;
+    }
+
+    /* Preloader */
+    .js-preloader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+
+    .preloader-inner {
+      display: flex;
+      gap: 10px;
+    }
+
+    .dot,
+    .dots span {
+      width: 15px;
+      height: 15px;
+      background: #2a9d8f;
+      border-radius: 50%;
+      animation: bounce 1.4s infinite ease-in-out both;
+    }
+
+    .dots {
+      display: flex;
+      gap: 10px;
+    }
+
+    .dots span:nth-child(1) {
+      animation-delay: -0.32s;
+    }
+
+    .dots span:nth-child(2) {
+      animation-delay: -0.16s;
+    }
+
+    @keyframes bounce {
+      0%, 80%, 100% {
+        transform: scale(0);
+      }
+      40% {
+        transform: scale(1);
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero-content h2 {
+        font-size: 2rem;
+      }
+
+      .nav {
+        display: none;
+      }
+
+      .menu-trigger {
+        display: block;
+      }
+    }
+    
+    .reservation-box {
+  max-width: 900px;
+  margin: auto;
+  padding: 60px;
+  border-radius: 16px;
+
+  /* Background image */
+  background-image: linear-gradient(
+      rgba(255,255,255,0.3),
+      rgba(255,255,255,0.9)
+    ),
+    url("https://media.istockphoto.com/id/1387029953/vector/overlapping-hands-illustration.jpg?s=2048x2048&w=is&k=20&c=DPxYG_uMofHye-mN-wJvKjcUyyJKLH5h7-gAiP2tcvU=");
+  
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 700px;
+
+  box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+}
+
+  </style>
+</head>
 
 <body>
 
-  <!-- ***** Preloader Start ***** -->
-  <div id="js-preloader" class="js-preloader">
-    <div class="preloader-inner">
-      <span class="dot"></span>
-      <div class="dots">
-        <span></span>
-        <span></span>
-        <span></span>
+<!-- Preloader -->
+<div id="js-preloader" class="js-preloader">
+  <div class="preloader-inner">
+    <span class="dot"></span>
+    <div class="dots">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="header-area header-sticky">
+  <div class="container">
+    <nav class="main-nav">
+      <a href="index.html" class="logo">
+        <img src="assets/images/logo.png" alt="E-Community Service">
+      </a>
+      <ul class="nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="programs.html">Programs</a></li>
+        <li><a href="reservation.html" class="active">Reservation</a></li>
+      </ul>
+      <a class="menu-trigger"><span>Menu</span></a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO SECTION -->
+<section class="second-page-heading">
+  <!-- Background Image -->
+  <div class="hero-bg"></div>
+
+  <!-- Dark transparent overlay -->
+  <div class="hero-overlay"></div>
+
+  <!-- Content -->
+  <div class="hero-content">
+    <h4>Make a Difference Today</h4>
+    <h2 class="fw-bold">Volunteer Reservation</h2>
+    <p>
+      Students and citizens can reserve slots for community service programs
+      and contribute meaningfully to society.
+    </p>
+    <div class="main-button">
+      <a href="#form">Reserve Now</a>
+    </div>
+  </div>
+</section>
+
+<!-- WHY VOLUNTEER -->
+<section style="padding:80px 0; background:#c9ffcb;">
+  <div class="container">
+    <div class="row text-center mb-5">
+      <div class="col-lg-12">
+        <h3 class="fw-bold">Why Volunteer With Us?</h3>
+        <p class="text-muted">A structured and impactful volunteering experience</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="info-item text-center">
+          <i class="fa fa-users fa-3x mb-3"></i>
+          <h5>Community Impact</h5>
+          <p>Participate in programs that directly benefit communities in need.</p>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="info-item text-center">
+          <i class="fa fa-calendar fa-3x mb-3"></i>
+          <h5>Organized Programs</h5>
+          <p>Volunteer activities with fixed schedules and limited slots.</p>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="info-item text-center">
+          <i class="fa fa-heart fa-3x mb-3"></i>
+          <h5>Meaningful Service</h5>
+          <p>Create long-term social value through your time and effort.</p>
+        </div>
       </div>
     </div>
   </div>
-  <!-- ***** Preloader End ***** -->
+</section>
 
-  <!-- ***** Header Area Start ***** -->
-  <header class="header-area header-sticky">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <nav class="main-nav">
-                    <!-- ***** Logo Start ***** -->
-                    <a href="index.html" class="logo">
-                        <img src="assets/images/logo.png" alt="">
-                    </a>
-                    <!-- ***** Logo End ***** -->
-                    <!-- ***** Menu Start ***** -->
-                    <ul class="nav">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="deals.html">Deals</a></li>
-                        <li><a href="reservation.html" class="active">Reservation</a></li>
-                        <li><a href="reservation.html">Book Yours</a></li>
-                    </ul>   
-                    <a class='menu-trigger'>
-                        <span>Menu</span>
-                    </a>
-                    <!-- ***** Menu End ***** -->
-                </nav>
-            </div>
-        </div>
-    </div>
-  </header>
-  <!-- ***** Header Area End ***** -->
+<!-- RESERVATION FORM -->
+<section id="form" class="reservation-form" style="padding:100px 0; background:#c9ffcb;">
+  <div class="reservation-box">
 
-  <div class="second-page-heading">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <h4>Book Prefered Deal Here</h4>
-          <h2>Make Your Reservation</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt uttersi labore et dolore magna aliqua is ipsum suspendisse ultrices gravida</p>
-          <div class="main-button"><a href="about.html">Discover More</a></div>
-        </div>
-      </div>
-    </div>
-  </div>
 
-  <div class="more-info reservation-info">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-4 col-sm-6">
-          <div class="info-item">
-            <i class="fa fa-phone"></i>
-            <h4>Make a Phone Call</h4>
-            <a href="#">+123 456 789 (0)</a>
+          <div class="text-center mb-4">
+            <h3 class="fw-bold">Reserve Your Volunteer Slot</h3>
+            <p class="text-muted">Fill in the details below to secure your participation</p>
           </div>
-        </div>
-        <div class="col-lg-4 col-sm-6">
-          <div class="info-item">
-            <i class="fa fa-envelope"></i>
-            <h4>Contact Us via Email</h4>
-            <a href="#">company@email.com</a>
-          </div>
-        </div>
-        <div class="col-lg-4 col-sm-6">
-          <div class="info-item">
-            <i class="fa fa-map-marker"></i>
-            <h4>Visit Our Offices</h4>
-            <a href="#">24th Street North Avenue London, UK</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 
-  <div class="reservation-form">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <div id="map">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12469.776493332698!2d-80.14036379941481!3d25.907788681148624!2m3!1f357.26927939317244!2f20.870722720054623!3f0!3m2!1i1024!2i768!4f35!3m3!1m2!1s0x88d9add4b4ac788f%3A0xe77469d09480fcdb!2sSunny%20Isles%20Beach!5e1!3m2!1sen!2sth!4v1642869952544!5m2!1sen!2sth" width="100%" height="450px" frameborder="0" style="border:0; border-top-left-radius: 23px; border-top-right-radius: 23px;" allowfullscreen=""></iframe>
-          </div>
-        </div>
-        <div class="col-lg-12">
-          <form id="reservation-form" name="gs" method="submit" role="search" action="#">
+          <form method="post" action="#">
             <div class="row">
-              <div class="col-lg-12">
-                <h4>Make Your <em>Reservation</em> Through This <em>Form</em></h4>
+              <div class="col-md-6 mb-3">
+                <label class="form-label">Full Name</label>
+                <input type="text" class="form-control"
+                       placeholder="e.g. Adam Zul" required>
               </div>
-              <div class="col-lg-6">
-                  <fieldset>
-                      <label for="Name" class="form-label">Your Name</label>
-                      <input type="text" name="Name" class="Name" placeholder="Ex. John Smithee" autocomplete="on" required>
-                  </fieldset>
+
+              <div class="col-md-6 mb-3">
+                <label class="form-label">Phone Number</label>
+                <input type="text" class="form-control"
+                       placeholder="e.g. +60 1X-XXXXXXX" required>
               </div>
-              <div class="col-lg-6">
-                <fieldset>
-                    <label for="Number" class="form-label">Your Phone Number</label>
-                    <input type="text" name="Number" class="Number" placeholder="Ex. +xxx xxx xxx" autocomplete="on" required>
-                </fieldset>
+
+              <div class="col-md-12 mb-3">
+                <label class="form-label">Volunteer Program</label>
+                <select class="form-select" required>
+                  <option selected disabled>Choose a program</option>
+                  <option>Beach Clean-Up</option>
+                  <option>Food Distribution</option>
+                  <option>Orphanage Visit</option>
+                  <option>Blood Donation Campaign</option>
+                </select>
               </div>
-              <div class="col-lg-6">
-                  <fieldset>
-                      <label for="chooseGuests" class="form-label">Number Of Guests</label>
-                      <select name="Guests" class="form-select" aria-label="Default select example" id="chooseGuests" onChange="this.form.click()">
-                          <option selected>ex. 3 or 4 or 5</option>
-                          <option type="checkbox" name="option1" value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4+">4+</option>
-                      </select>
-                  </fieldset>
+
+              <div class="col-md-6 mb-3">
+                <label class="form-label">Preferred Date</label>
+                <input type="date" class="form-control" required>
               </div>
-              <div class="col-lg-6">
-                <fieldset>
-                    <label for="Number" class="form-label">Check In Date</label>
-                    <input type="date" name="date" class="date" required>
-                </fieldset>
+
+              <div class="col-md-6 mb-3">
+                <label class="form-label">Participants</label>
+                <select class="form-select" required>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4+</option>
+                </select>
               </div>
-              <div class="col-lg-12">
-                  <fieldset>
-                      <label for="chooseDestination" class="form-label">Choose Your Destination</label>
-                      <select name="Destination" class="form-select" aria-label="Default select example" id="chooseCategory" onChange="this.form.click()">
-                          <option selected>ex. Switzerland, Lausanne</option>
-                          <option value="Italy, Roma">Italy, Roma</option>
-                          <option value="France, Paris">France, Paris</option>
-                          <option value="Engaland, London">Engaland, London</option>
-                          <option value="Switzerland, Lausanne">Switzerland, Lausanne</option>
-                      </select>
-                  </fieldset>
-              </div>
-              <div class="col-lg-12">                        
-                  <fieldset>
-                      <button class="main-button">Make Your Reservation Now</button>
-                  </fieldset>
+
+              <div class="col-md-12 mt-4">
+                <button type="submit" class="main-button w-100">
+                  Submit Reservation
+                </button>
               </div>
             </div>
           </form>
+
         </div>
+  
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <p>
+          © 2025 E-Community Service Platform<br>
+          Empowering students and citizens through volunteerism
+        </p>
       </div>
     </div>
   </div>
+</footer>
 
-  <footer>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <p>Copyright © 2036 <a href="#">WoOx Travel</a> Company. All rights reserved. 
-          <br>Design: <a href="https://templatemo.com" target="_blank" title="free CSS templates">TemplateMo</a></p>
-        </div>
-      </div>
-    </div>
-  </footer>
+<!-- Scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 
+<script>
+  // Preloader
+  window.addEventListener('load', function() {
+    const preloader = document.getElementById('js-preloader');
+    if (preloader) {
+      setTimeout(function() {
+        preloader.style.opacity = '0';
+        setTimeout(function() {
+          preloader.style.display = 'none';
+        }, 500);
+      }, 1000);
+    }
+  });
 
-  <!-- Scripts -->
-  <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-
-  <script src="assets/js/isotope.min.js"></script>
-  <script src="assets/js/owl-carousel.js"></script>
-  <script src="assets/js/wow.js"></script>
-  <script src="assets/js/tabs.js"></script>
-  <script src="assets/js/popup.js"></script>
-  <script src="assets/js/custom.js"></script>
-
-  <script>
-    $(".option").click(function(){
-      $(".option").removeClass("active");
-      $(this).addClass("active"); 
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
     });
-  </script>
+  });
+</script>
 
-  </body>
-
+</body>
 </html>
